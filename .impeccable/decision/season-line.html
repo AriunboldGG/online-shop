@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Season Line sketch</title>
+<style>
+  :root { --ink:#1d1d1f; --line:#d6245f; --spring:#d6245f; --summer:#00795a; --autumn:#b84f00; --winter:#2448c9; }
+  * { box-sizing:border-box; margin:0; }
+  body { width:390px; height:844px; overflow:hidden; background:#fff; color:var(--ink); font-family:"Arial Black","Segoe UI",system-ui,sans-serif; }
+  .led { background:#111; color:#ffb020; font:700 13px/34px "Courier New",monospace; white-space:nowrap; overflow:hidden; letter-spacing:.04em; padding:0 12px; }
+  .led span { display:inline-block; padding-left:4px; }
+  header { display:flex; align-items:center; justify-content:space-between; padding:14px 16px; }
+  .logo { display:flex; align-items:center; gap:8px; font-size:22px; letter-spacing:-.02em; }
+  .logo i { width:22px; height:22px; border-radius:50%; border:5px solid var(--line); }
+  .cart { width:44px; height:44px; border-radius:50%; background:var(--line); color:#fff; display:grid; place-items:center; font-size:16px; }
+  .lines { display:flex; gap:6px; padding:0 16px 12px; }
+  .lines a { flex:1; height:44px; border-radius:22px; display:flex; align-items:center; justify-content:center; gap:6px; font:800 14px system-ui; color:#fff; }
+  .lines a b { width:12px; height:12px; border-radius:50%; background:#fff; }
+  .lines a.on { outline:3px solid var(--ink); outline-offset:2px; }
+  .sign { margin:4px 16px 0; border:3px solid var(--ink); border-radius:18px; overflow:hidden; position:relative; }
+  .band { background:var(--line); color:#fff; padding:10px 14px; display:flex; justify-content:space-between; align-items:center; }
+  .band strong { font-size:26px; letter-spacing:-.02em; }
+  .band small { font:700 13px system-ui; }
+  .track { position:relative; height:330px; background:#fff; }
+  .rail { position:absolute; left:0; right:0; top:270px; height:12px; background:var(--line); }
+  .stop { position:absolute; top:262px; width:28px; height:28px; border-radius:50%; background:#fff; border:5px solid var(--line); }
+  .here { position:absolute; left:181px; top:256px; width:40px; height:40px; border-radius:50%; background:var(--ink); border:6px solid #fff; box-shadow:0 0 0 4px var(--ink); }
+  .product { position:absolute; left:70px; top:18px; width:220px; height:230px; border-radius:110px 110px 40px 40px; background:#ffe1ea; display:grid; place-items:center; font:700 13px system-ui; color:#c2185b; }
+  .tag { position:absolute; left:14px; bottom:8px; font:700 12px system-ui; color:#666; }
+  .doodle { position:absolute; pointer-events:none; }
+  .info { padding:14px 16px 0; }
+  .info h1 { font-size:30px; line-height:1.05; letter-spacing:-.03em; }
+  .row { display:flex; align-items:center; justify-content:space-between; margin-top:12px; }
+  .price { font-size:28px; }
+  .add { height:52px; padding:0 22px; border-radius:26px; background:var(--ink); color:#fff; font:800 16px system-ui; display:flex; align-items:center; }
+</style>
+</head>
+<body>
+  <div class="led"><span>● ХАВРЫН ШУГАМ ● СОЛОНГОСООС ИМПОРТОЛСОН ● ХУВЦАС · ГУТАЛ · ГЭР АХУЙ · ТАВИЛГА ● ХАВРЫН ШУГАМ ●</span></div>
+  <header>
+    <div class="logo"><i></i>Online Shop</div>
+    <div class="cart">2</div>
+  </header>
+  <nav class="lines">
+    <a class="on" style="background:var(--spring)"><b></b>Хавар</a>
+    <a style="background:var(--summer)"><b></b>Зун</a>
+    <a style="background:var(--autumn)"><b></b>Намар</a>
+    <a style="background:var(--winter)"><b></b>Өвөл</a>
+  </nav>
+  <section class="sign">
+    <div class="band"><strong>01 Хувцас</strong><small>Хаврын шугам →</small></div>
+    <div class="track">
+      <div class="product">Жишээ зураг</div>
+      <div class="rail"></div>
+      <div class="stop" style="left:30px"></div>
+      <div class="stop" style="left:105px"></div>
+      <div class="here"></div>
+      <div class="stop" style="left:270px"></div>
+      <div class="stop" style="left:340px"></div>
+      <svg class="doodle" style="left:250px;top:30px" width="110" height="120" viewBox="0 0 110 120" fill="none" stroke="#1d1d1f" stroke-width="3" stroke-linecap="round"><path d="M10 10c30 5 60 20 70 55"/><path d="M68 58l12 10 6-15"/><path d="M60 95c10-6 25-4 35 4"/></svg>
+      <svg class="doodle" style="left:20px;top:40px" width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="#1d1d1f" stroke-width="3" stroke-linecap="round"><path d="M30 6v14M30 40v14M6 30h14M40 30h14M14 14l9 9M37 37l9 9M46 14l-9 9M23 37l-9 9"/></svg>
+      <div class="tag">Жишээ бараа</div>
+    </div>
+  </section>
+  <div class="info">
+    <h1>Хаврын хөнгөн куртик</h1>
+    <div class="row"><span class="price">₮89,000</span><span class="add">Сагсанд нэмэх</span></div>
+  </div>
+</body>
+</html>

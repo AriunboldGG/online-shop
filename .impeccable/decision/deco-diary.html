@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deco Diary sketch</title>
+<style>
+  * { box-sizing:border-box; margin:0; }
+  body { width:390px; height:844px; overflow:hidden; color:#1f1f2e; font-family:"Segoe UI",system-ui,sans-serif;
+    background:#f6f7fb; background-image:linear-gradient(#c9d4ea 1px,transparent 1px),linear-gradient(90deg,#c9d4ea 1px,transparent 1px); background-size:22px 22px; }
+  .bar { background:#ff6b9a; color:#1f1f2e; font:800 13px/34px system-ui; text-align:center; }
+  header { display:flex; justify-content:space-between; align-items:center; padding:14px 16px; }
+  .logo { font:900 24px system-ui; transform:rotate(-3deg); background:#ffd23f; padding:2px 10px; border-radius:8px; }
+  .cart { width:44px; height:44px; border-radius:12px; background:#fff; border:2px solid #1f1f2e; display:grid; place-items:center; font-weight:800; }
+  .tabs { position:absolute; right:0; top:120px; display:flex; flex-direction:column; gap:6px; }
+  .tabs a { width:54px; height:64px; border-radius:12px 0 0 12px; display:grid; place-items:center; font:800 12px system-ui; color:#1f1f2e; writing-mode:vertical-rl; }
+  .sticker { position:absolute; left:28px; top:150px; width:270px; height:300px; background:#fff; border-radius:40px; box-shadow:0 0 0 8px #fff,0 6px 18px rgba(0,0,0,.12); transform:rotate(-4deg); display:grid; place-items:center; font-weight:700; color:#55556a; }
+  .tape { position:absolute; left:190px; top:420px; width:150px; height:34px; background:rgba(75,192,255,.7); transform:rotate(8deg); display:grid; place-items:center; font:900 22px system-ui; }
+  h1 { position:absolute; left:24px; top:500px; width:300px; font:900 34px/1.05 system-ui; }
+  .add { position:absolute; left:24px; top:600px; height:54px; padding:0 24px; border-radius:16px; background:#1f1f2e; color:#fff; font:800 16px/54px system-ui; }
+  svg { position:absolute; }
+</style>
+</head>
+<body>
+  <div class="bar">Солонгосоос импортолсон бараа ♡</div>
+  <header><span class="logo">Online Shop</span><span class="cart">2</span></header>
+  <nav class="tabs">
+    <a style="background:#ff6b9a">Хавар</a><a style="background:#7be0a4">Зун</a><a style="background:#ffb347">Намар</a><a style="background:#4bc0ff">Өвөл</a>
+  </nav>
+  <div class="sticker">Жишээ зураг</div>
+  <div class="tape">₮89,000</div>
+  <svg style="left:250px;top:110px" width="80" height="60" fill="none" stroke="#1f1f2e" stroke-width="3" stroke-linecap="round"><path d="M10 40c15-30 40-30 55-10"/><path d="M58 22l8 9-11 3"/></svg>
+  <h1>Хаврын хөнгөн куртик</h1>
+  <div class="add">Сагсанд нэмэх</div>
+</body>
+</html>
