@@ -78,7 +78,7 @@ export function SiteFooter() {
               </li>
             </ul>
             <Sample onColor className="mt-3">
-              Хаяг тодорхойгүй
+              Хаягийн мэдээлэл
             </Sample>
           </div>
         </div>

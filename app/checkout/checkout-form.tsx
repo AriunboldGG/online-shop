@@ -140,7 +140,7 @@ export function CheckoutForm() {
             <span className="flood grid size-10 place-items-center rounded-full text-white">
               <CheckIcon />
             </span>
-            <h1 className="font-display text-2xl font-bold">Эцсийн буудал</h1>
+            <h1 className="font-display text-2xl font-bold">Төлбөрийн мэдээлэл</h1>
           </div>
           <div className="space-y-3 px-5 py-5">
             <p className="text-lg font-semibold">
@@ -316,9 +316,9 @@ export function CheckoutForm() {
 
             <Stop id="delivery" title="Хүргэлтийн арга" active={active} done={stopDone("delivery")} onFocus={setActive}>
               <fieldset className="min-w-0" aria-describedby={shown("method") ? `${formId}-method-error` : undefined}>
-                <legend className="mb-2 flex flex-wrap items-center gap-2 font-semibold">
+                {/* <legend className="mb-2 flex flex-wrap items-center gap-2 font-semibold">
                   Хүргэлтээ сонгоно уу <Sample>Жишээ нөхцөл</Sample>
-                </legend>
+                </legend> */}
                 <div className="space-y-2">
                   {methods.map((m) => (
                     <label
