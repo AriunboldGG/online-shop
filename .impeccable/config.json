@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          ".impeccable/decision/season-line.html"
+        ],
+        "createdAt": "2026-11-01T11:29:38.377Z",
+        "reason": "agent decision: spent decision-round sketch, never shipped; real build has no finding"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/decision/season-line.html"
+        ],
+        "createdAt": "2026-11-01T12:10:19.018Z",
+        "reason": "agent decision: spent decision-round sketch, never shipped; predates DESIGN.md"
+      }
+    ]
+  }
+}

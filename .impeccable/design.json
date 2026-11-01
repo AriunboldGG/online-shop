@@ -1,0 +1,533 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-01T12:25:08.285Z",
+  "title": "Design System: Online Shop",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Signage Ink",
+        "canonical": "oklch(23.2% 0.004 286.1)",
+        "tonalRamp": [
+          "oklch(15% 0.002 286.1)",
+          "oklch(25% 0.004 286.1)",
+          "oklch(35% 0.003 286.1)",
+          "oklch(48% 0.003 286.1)",
+          "oklch(60% 0.003 286.1)",
+          "oklch(72% 0.002 286.1)",
+          "oklch(84% 0.002 286.1)",
+          "oklch(95% 0.001 286.1)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "oklch(41.1% 0.010 286)",
+        "tonalRamp": [
+          "oklch(15% 0.004 286)",
+          "oklch(25% 0.008 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(48% 0.009 286)",
+          "oklch(60% 0.008 286)",
+          "oklch(72% 0.007 286)",
+          "oklch(84% 0.006 286)",
+          "oklch(95% 0.003 286)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Enamel White",
+        "canonical": "oklch(100% 0 0)",
+        "tonalRamp": [
+          "oklch(15% 0 90)",
+          "oklch(25% 0 90)",
+          "oklch(35% 0 90)",
+          "oklch(48% 0 90)",
+          "oklch(60% 0 90)",
+          "oklch(72% 0 90)",
+          "oklch(84% 0 90)",
+          "oklch(95% 0 90)"
+        ]
+      },
+      "platform": {
+        "role": "neutral",
+        "displayName": "Platform Grey",
+        "canonical": "oklch(96.1% 0.005 95.1)",
+        "tonalRamp": [
+          "oklch(15% 0.001 95.1)",
+          "oklch(25% 0.002 95.1)",
+          "oklch(35% 0.002 95.1)",
+          "oklch(48% 0.003 95.1)",
+          "oklch(60% 0.004 95.1)",
+          "oklch(72% 0.004 95.1)",
+          "oklch(84% 0.005 95.1)",
+          "oklch(95% 0.003 95.1)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rail Rule",
+        "canonical": "oklch(88.1% 0.008 98.9)",
+        "tonalRamp": [
+          "oklch(15% 0.001 98.9)",
+          "oklch(25% 0.004 98.9)",
+          "oklch(35% 0.004 98.9)",
+          "oklch(48% 0.005 98.9)",
+          "oklch(60% 0.006 98.9)",
+          "oklch(72% 0.007 98.9)",
+          "oklch(84% 0.008 98.9)",
+          "oklch(95% 0.004 98.9)"
+        ]
+      },
+      "board": {
+        "role": "secondary",
+        "displayName": "Board Black",
+        "canonical": "oklch(18.3% 0.004 286)",
+        "tonalRamp": [
+          "oklch(15% 0.002 286)",
+          "oklch(25% 0.004 286)",
+          "oklch(35% 0.003 286)",
+          "oklch(48% 0.003 286)",
+          "oklch(60% 0.003 286)",
+          "oklch(72% 0.002 286)",
+          "oklch(84% 0.002 286)",
+          "oklch(95% 0.001 286)"
+        ]
+      },
+      "led": {
+        "role": "secondary",
+        "displayName": "LED Amber",
+        "canonical": "oklch(81.3% 0.165 75)",
+        "tonalRamp": [
+          "oklch(15% 0.033 75)",
+          "oklch(25% 0.081 75)",
+          "oklch(35% 0.096 75)",
+          "oklch(48% 0.116 75)",
+          "oklch(60% 0.133 75)",
+          "oklch(72% 0.151 75)",
+          "oklch(84% 0.161 75)",
+          "oklch(95% 0.072 75)"
+        ]
+      },
+      "spring": {
+        "role": "primary",
+        "displayName": "Rose Line Pink (Line 1, deep)",
+        "canonical": "oklch(56% 0.17 2)",
+        "tonalRamp": [
+          "oklch(15% 0.051 2)",
+          "oklch(25% 0.102 2)",
+          "oklch(35% 0.136 2)",
+          "oklch(48% 0.162 2)",
+          "oklch(60% 0.17 2)",
+          "oklch(72% 0.145 2)",
+          "oklch(84% 0.102 2)",
+          "oklch(95% 0.043 2)"
+        ]
+      },
+      "spring-soft": {
+        "role": "primary",
+        "displayName": "Blossom Pink (Line 1, soft)",
+        "canonical": "oklch(90% 0.055 2)",
+        "tonalRamp": [
+          "oklch(15% 0.017 2)",
+          "oklch(25% 0.033 2)",
+          "oklch(35% 0.044 2)",
+          "oklch(48% 0.052 2)",
+          "oklch(60% 0.055 2)",
+          "oklch(72% 0.047 2)",
+          "oklch(84% 0.033 2)",
+          "oklch(95% 0.014 2)"
+        ]
+      },
+      "summer": {
+        "role": "primary",
+        "displayName": "Paddy Green (Line 2, deep)",
+        "canonical": "oklch(53% 0.155 147)",
+        "tonalRamp": [
+          "oklch(15% 0.046 147)",
+          "oklch(25% 0.093 147)",
+          "oklch(35% 0.124 147)",
+          "oklch(48% 0.147 147)",
+          "oklch(60% 0.155 147)",
+          "oklch(72% 0.132 147)",
+          "oklch(84% 0.093 147)",
+          "oklch(95% 0.039 147)"
+        ]
+      },
+      "summer-soft": {
+        "role": "primary",
+        "displayName": "Mint Leaf (Line 2, soft)",
+        "canonical": "oklch(91% 0.075 147)",
+        "tonalRamp": [
+          "oklch(15% 0.022 147)",
+          "oklch(25% 0.045 147)",
+          "oklch(35% 0.06 147)",
+          "oklch(48% 0.071 147)",
+          "oklch(60% 0.075 147)",
+          "oklch(72% 0.064 147)",
+          "oklch(84% 0.045 147)",
+          "oklch(95% 0.019 147)"
+        ]
+      },
+      "autumn": {
+        "role": "primary",
+        "displayName": "Ginkgo Orange (Line 3, deep; default running line)",
+        "canonical": "oklch(56% 0.15 48)",
+        "tonalRamp": [
+          "oklch(15% 0.045 48)",
+          "oklch(25% 0.09 48)",
+          "oklch(35% 0.12 48)",
+          "oklch(48% 0.142 48)",
+          "oklch(60% 0.15 48)",
+          "oklch(72% 0.128 48)",
+          "oklch(84% 0.09 48)",
+          "oklch(95% 0.037 48)"
+        ]
+      },
+      "autumn-soft": {
+        "role": "primary",
+        "displayName": "Persimmon Cream (Line 3, soft; default running soft)",
+        "canonical": "oklch(88% 0.075 62)",
+        "tonalRamp": [
+          "oklch(15% 0.022 62)",
+          "oklch(25% 0.045 62)",
+          "oklch(35% 0.06 62)",
+          "oklch(48% 0.071 62)",
+          "oklch(60% 0.075 62)",
+          "oklch(72% 0.064 62)",
+          "oklch(84% 0.045 62)",
+          "oklch(95% 0.019 62)"
+        ]
+      },
+      "winter": {
+        "role": "primary",
+        "displayName": "Winter Slate (Line 4, deep)",
+        "canonical": "oklch(50% 0.045 250)",
+        "tonalRamp": [
+          "oklch(15% 0.013 250)",
+          "oklch(25% 0.027 250)",
+          "oklch(35% 0.036 250)",
+          "oklch(48% 0.043 250)",
+          "oklch(60% 0.045 250)",
+          "oklch(72% 0.038 250)",
+          "oklch(84% 0.027 250)",
+          "oklch(95% 0.011 250)"
+        ]
+      },
+      "winter-soft": {
+        "role": "primary",
+        "displayName": "Frost Grey-Blue (Line 4, soft)",
+        "canonical": "oklch(90% 0.022 250)",
+        "tonalRamp": [
+          "oklch(15% 0.007 250)",
+          "oklch(25% 0.013 250)",
+          "oklch(35% 0.018 250)",
+          "oklch(48% 0.021 250)",
+          "oklch(60% 0.022 250)",
+          "oklch(72% 0.019 250)",
+          "oklch(84% 0.013 250)",
+          "oklch(95% 0.005 250)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Platform Sign Display",
+        "purpose": "Homepage hero headline on the line band."
+      },
+      "display-line": {
+        "displayName": "Line Name",
+        "purpose": "Season name beside its ringed line number on season heroes."
+      },
+      "headline": {
+        "displayName": "Section Headline",
+        "purpose": "Section titles on phones; rises to headline-lg at 64rem."
+      },
+      "headline-lg": {
+        "displayName": "Section Headline (lg)",
+        "purpose": "Section titles at 64rem and up."
+      },
+      "title": {
+        "displayName": "Sign Title",
+        "purpose": "Fieldset legends, panel and drawer heads."
+      },
+      "price": {
+        "displayName": "Price",
+        "purpose": "Prices, counts, line numbers; always tabular."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running copy, 40-52ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Nav pills, chips, captions."
+      },
+      "station-code": {
+        "displayName": "Station Code",
+        "purpose": "Product station codes (3-02) and tag text."
+      },
+      "led": {
+        "displayName": "LED Board",
+        "purpose": "Uppercase amber announcement type on the board only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "here-halo",
+        "value": "0 0 0 4px var(--color-ink)",
+        "purpose": "Solid ink ring around the 'you are here' dot; current selection only."
+      },
+      {
+        "name": "led-glow-text",
+        "value": "0 0 6px rgb(255 176 32 / 0.55)",
+        "purpose": "text-shadow for amber LED type on the board."
+      },
+      {
+        "name": "led-lamp",
+        "value": "0 0 6px 1px rgb(255 176 32 / 0.7)",
+        "purpose": "Glow of the RunningLamp's amber lamp."
+      },
+      {
+        "name": "line-lamp",
+        "value": "0 0 6px 1px var(--line)",
+        "purpose": "Running-line dot leading each LED board message."
+      },
+      {
+        "name": "focus-ring",
+        "value": "outline: 3px solid var(--color-ink); outline-offset: 3px",
+        "purpose": "Global :focus-visible ring, ink on every surface; follows each element's own radius."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The single system curve: doors, drawer, sheet, settle, flood, hover lifts."
+      },
+      {
+        "name": "flood",
+        "value": "background-color 0.5s ease-out-expo",
+        "purpose": "Line colour change on deep (.flood) and soft (.flood-soft) surfaces."
+      },
+      {
+        "name": "doors",
+        "value": "clip-path inset(0 50% 0 50%) to inset(0), 0.7s ease-out-expo",
+        "purpose": "Header line band opens from the centre when the running line changes."
+      },
+      {
+        "name": "drawer-in",
+        "value": "translateX(100%) to 0, 0.45s ease-out-expo",
+        "purpose": "Cart drawer from the right."
+      },
+      {
+        "name": "sheet-in",
+        "value": "translateY(100%) to 0, 0.45s ease-out-expo",
+        "purpose": "Mobile filter sheet from the bottom."
+      },
+      {
+        "name": "settle",
+        "value": "opacity 0.4 + translateY(8px) to rest, 0.5s ease-out-expo, stagger 40/80/120ms",
+        "purpose": "Filtered results settle onto the grid."
+      },
+      {
+        "name": "led-flip",
+        "value": "9s ease-out-expo infinite; pauses on hover and focus",
+        "purpose": "LED board flips between messages."
+      },
+      {
+        "name": "crawl",
+        "value": "translateX(-50%) 28s linear infinite; pauses on hover",
+        "purpose": "Line-flood marquee."
+      },
+      {
+        "name": "press",
+        "value": "scale 1.02-1.05 on hover, 0.95-0.98 on active, 200ms ease-out",
+        "purpose": "Flood buttons."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "all animations none; flood transition none; scroll-behavior auto",
+        "purpose": "prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "40rem"
+      },
+      {
+        "name": "md",
+        "value": "48rem"
+      },
+      {
+        "name": "lg",
+        "value": "64rem"
+      },
+      {
+        "name": "content-max",
+        "value": "72rem"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Line Button",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Primary CTA: a 56px pill flooded with the deep tone of the running line, white label.",
+      "html": "<a class=\"ds-btn-line\" href=\"#\">Намар · Өвлийн цуглуулга <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12h15M13 6l6 6-6 6\"/></svg></a>",
+      "css": ".ds-btn-line { display: inline-flex; align-items: center; gap: 12px; min-height: 56px; padding: 0 24px; border-radius: 9999px; background: var(--line, var(--color-autumn, #b85207)); color: #fff; font-family: var(--font-display, Geologica, \"Segoe UI\", sans-serif); font-weight: 700; font-size: 1rem; text-decoration: none; white-space: nowrap; transition: transform 200ms ease-out, background-color 0.5s cubic-bezier(0.16,1,0.3,1); } .ds-btn-line:hover { transform: scale(1.02); } .ds-btn-line:active { transform: scale(0.98); } .ds-btn-line:focus-visible { outline: 3px solid var(--color-ink, #1d1d1f); outline-offset: 3px; }"
+    },
+    {
+      "name": "Ink Button",
+      "kind": "button",
+      "refersTo": "button-ink",
+      "description": "Ink pill used to submit a form that sits on a soft panel or inside a sign.",
+      "html": "<button class=\"ds-btn-ink\" type=\"button\">Бүртгүүлэх</button>",
+      "css": ".ds-btn-ink { height: 56px; padding: 0 28px; border: 0; border-radius: 9999px; background: var(--color-ink, #1d1d1f); color: #fff; font-family: var(--font-body, Golos Text, \"Segoe UI\", sans-serif); font-weight: 600; font-size: 1rem; cursor: pointer; transition: background-color 150ms; } .ds-btn-ink:hover { background: #000; } .ds-btn-ink:focus-visible { outline: 3px solid var(--color-ink, #1d1d1f); outline-offset: 3px; }"
+    },
+    {
+      "name": "Add to Cart",
+      "kind": "button",
+      "refersTo": "button-add",
+      "description": "44px deep line-flood circle with a plus, used on every product module.",
+      "html": "<button class=\"ds-btn-add\" type=\"button\" aria-label=\"Сагсанд нэмэх\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12h14\"/></svg></button>",
+      "css": ".ds-btn-add { display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 9999px; background: var(--line, var(--color-autumn, #b85207)); color: #fff; cursor: pointer; transition: transform 200ms ease-out; } .ds-btn-add:hover { transform: scale(1.05); } .ds-btn-add:active { transform: scale(0.95); } .ds-btn-add:focus-visible { outline: 3px solid var(--color-ink, #1d1d1f); outline-offset: 3px; }"
+    },
+    {
+      "name": "Ring Button",
+      "kind": "button",
+      "refersTo": "button-ring",
+      "description": "Paper circle with a 3px ink border for secondary icon actions.",
+      "html": "<button class=\"ds-btn-ring\" type=\"button\" aria-label=\"Ирэхэд мэдэгдэх\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z\"/><path d=\"M10 20.5a2 2 0 0 0 4 0\"/></svg></button>",
+      "css": ".ds-btn-ring { display: grid; place-items: center; width: 48px; height: 48px; border: 3px solid var(--color-ink, #1d1d1f); border-radius: 9999px; background: var(--color-paper, #fff); color: var(--color-ink, #1d1d1f); cursor: pointer; } .ds-btn-ring:hover { background: var(--color-platform, #f3f2ee); } .ds-btn-ring:focus-visible { outline: 3px solid var(--color-ink, #1d1d1f); outline-offset: 3px; }"
+    },
+    {
+      "name": "Search Pill",
+      "kind": "input",
+      "refersTo": "input-pill",
+      "description": "Ink-bordered pill field with a leading icon.",
+      "html": "<label class=\"ds-input-pill\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6.5\"/><path d=\"m15.5 15.5 5 5\"/></svg><input type=\"search\" placeholder=\"Жишээ нь: куртик, гутал, сандал\"></label>",
+      "css": ".ds-input-pill { display: flex; align-items: center; gap: 12px; max-width: 28rem; padding: 0 16px; border: 3px solid var(--color-ink, #1d1d1f); border-radius: 9999px; background: var(--color-paper, #fff); color: var(--color-ink, #1d1d1f); } .ds-input-pill input { height: 48px; width: 100%; border: 0; background: transparent; font-family: var(--font-body, Golos Text, \"Segoe UI\", sans-serif); font-size: 1rem; color: inherit; outline: none; } .ds-input-pill input::placeholder { color: var(--color-ink-soft, #4a4a50); } .ds-input-pill:focus-within { outline: 3px solid var(--color-ink, #1d1d1f); outline-offset: 3px; }"
+    },
+    {
+      "name": "Filter Chips",
+      "kind": "chip",
+      "refersTo": "chip-filter",
+      "description": "12px-radius size chips; active floods with the running line, empty options drop to rule grey.",
+      "html": "<div class=\"ds-chips\"><button class=\"ds-chip\" aria-pressed=\"false\">S</button><button class=\"ds-chip\" aria-pressed=\"true\">M</button><button class=\"ds-chip ds-chip-empty\" aria-pressed=\"false\">XL</button></div>",
+      "css": ".ds-chips { display: flex; gap: 8px; } .ds-chip { display: grid; place-items: center; min-width: 44px; min-height: 44px; padding: 0 8px; border: 3px solid var(--color-ink, #1d1d1f); border-radius: 12px; background: var(--color-paper, #fff); color: var(--color-ink, #1d1d1f); font-family: var(--font-body, Golos Text, \"Segoe UI\", sans-serif); font-weight: 600; font-variant-numeric: tabular-nums; cursor: pointer; } .ds-chip:hover { background: var(--color-platform, #f3f2ee); } .ds-chip[aria-pressed=\"true\"] { background: var(--line, var(--color-autumn, #b85207)); color: #fff; } .ds-chip-empty { border-color: var(--color-rule, #d9d8d2); color: var(--color-ink-soft, #4a4a50); } .ds-chip:focus-visible { outline: 3px solid var(--color-ink, #1d1d1f); outline-offset: 3px; }"
+    },
+    {
+      "name": "Product Module",
+      "kind": "card",
+      "refersTo": "product-module",
+      "description": "Every product as a stop: station code header, art, line band with a ring stop, name, price, add button.",
+      "html": "<article class=\"ds-module\"><header><span class=\"ds-code\">3-02</span><span class=\"ds-badge\">3</span></header><div class=\"ds-art\"><span class=\"ds-new\">Шинэ</span></div><div class=\"ds-band\"><span></span></div><div class=\"ds-body\"><h3>Ноосон сүлжмэл цамц</h3><div class=\"ds-row\"><span class=\"ds-price\">₮89,000</span><button class=\"ds-add\" type=\"button\" aria-label=\"Сагсанд нэмэх\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12h14\"/></svg></button></div></div></article>",
+      "css": ".ds-module { width: 220px; overflow: hidden; border: 3px solid var(--color-ink, #1d1d1f); border-radius: 22px; background: var(--color-paper, #fff); color: var(--color-ink, #1d1d1f); font-family: var(--font-body, Golos Text, \"Segoe UI\", sans-serif); } .ds-module header { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; border-bottom: 2px solid var(--color-ink, #1d1d1f); } .ds-code { font-family: var(--font-display, Geologica, \"Segoe UI\", sans-serif); font-size: 0.75rem; font-weight: 700; font-variant-numeric: tabular-nums; } .ds-badge { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 9999px; background: var(--color-autumn, #b85207); color: #fff; font-family: var(--font-display, Geologica, \"Segoe UI\", sans-serif); font-weight: 700; font-size: 10.5px; } .ds-art { position: relative; aspect-ratio: 1; } .ds-new { position: absolute; left: 12px; top: 12px; padding: 4px 10px; border-radius: 9999px; background: var(--color-ink, #1d1d1f); color: #fff; font-size: 0.75rem; font-weight: 700; } .ds-band { position: relative; height: 6px; background: var(--color-autumn, #b85207); } .ds-band span { position: absolute; left: 50%; top: 50%; width: 16px; height: 16px; transform: translate(-50%,-50%); box-sizing: border-box; border: 3px solid var(--color-autumn, #b85207); border-radius: 9999px; background: #fff; } .ds-body { padding: 12px; } .ds-body h3 { margin: 0 0 8px; font-size: 1rem; font-weight: 600; line-height: 1.375; } .ds-row { display: flex; justify-content: space-between; align-items: center; } .ds-price { font-family: var(--font-display, Geologica, \"Segoe UI\", sans-serif); font-weight: 700; font-variant-numeric: tabular-nums; } .ds-add { display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 9999px; background: var(--line, var(--color-autumn, #b85207)); color: #fff; cursor: pointer; transition: transform 200ms ease-out; } .ds-add:hover { transform: scale(1.05); } .ds-add:focus-visible { outline: 3px solid var(--color-ink, #1d1d1f); outline-offset: 3px; }"
+    },
+    {
+      "name": "Soft Sign Panel",
+      "kind": "card",
+      "refersTo": "soft-panel",
+      "description": "Two-tone sign: soft running-line head band with ink text and a deep, ink-ringed roundel; paper body below.",
+      "html": "<section class=\"ds-soft\"><header><span class=\"ds-roundel\">3</span><span class=\"ds-soft-code\">3-02</span></header><div class=\"ds-soft-body\"><p>Ноосон сүлжмэл цамц</p><span class=\"ds-soft-price\">₮89,000</span></div></section>",
+      "css": ".ds-soft { max-width: 22rem; overflow: hidden; border: 3px solid var(--color-ink, #1d1d1f); border-radius: 28px; background: var(--color-paper, #fff); color: var(--color-ink, #1d1d1f); font-family: var(--font-body, Golos Text, \"Segoe UI\", sans-serif); } .ds-soft header { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 56px; border-bottom: 3px solid var(--color-ink, #1d1d1f); background: var(--line-soft, var(--color-autumn-soft, #fccda5)); color: var(--color-ink, #1d1d1f); transition: background-color 0.5s cubic-bezier(0.16,1,0.3,1); } .ds-roundel { display: grid; place-items: center; width: 36px; height: 36px; box-sizing: border-box; border: 3px solid var(--color-ink, #1d1d1f); border-radius: 9999px; background: var(--line, var(--color-autumn, #b85207)); color: #fff; font-family: var(--font-display, Geologica, \"Segoe UI\", sans-serif); font-weight: 700; font-variant-numeric: tabular-nums; } .ds-soft-code { font-family: var(--font-display, Geologica, \"Segoe UI\", sans-serif); font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; } .ds-soft-body { padding: 16px 20px; } .ds-soft-body p { margin: 0 0 4px; font-weight: 600; } .ds-soft-price { font-family: var(--font-display, Geologica, \"Segoe UI\", sans-serif); font-weight: 700; font-size: 1.5rem; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "LED Board",
+      "kind": "custom",
+      "refersTo": "led-board",
+      "description": "Black announcement strip with amber dot-matrix type and a running-line underline.",
+      "html": "<aside class=\"ds-led\"><a href=\"#\"><span class=\"ds-led-dot\"></span>Шинэ улирал: Намар · Өвөл</a></aside>",
+      "css": ".ds-led { position: relative; display: flex; align-items: center; justify-content: center; height: 36px; background: var(--color-board, #121214); border-bottom: 3px solid var(--line, var(--color-autumn, #b85207)); } .ds-led::after { content: \"\"; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, #121214 0.7px, transparent 0.7px), linear-gradient(#121214 0.7px, transparent 0.7px); background-size: 2.5px 2.5px; opacity: 0.9; } .ds-led a { display: flex; align-items: center; gap: 8px; color: var(--color-led, #ffb020); text-shadow: 0 0 6px rgb(255 176 32 / 0.55); font-family: var(--font-display, Geologica, \"Segoe UI\", sans-serif); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.03em; text-transform: uppercase; text-decoration: none; } .ds-led-dot { width: 10px; height: 10px; border-radius: 9999px; background: var(--line, var(--color-autumn, #b85207)); box-shadow: 0 0 6px 1px var(--line, var(--color-autumn, #b85207)); } .ds-led a:focus-visible { outline: 3px solid var(--color-ink, #1d1d1f); outline-offset: 3px; }"
+    },
+    {
+      "name": "Signage Marks",
+      "kind": "custom",
+      "refersTo": "running-lamp",
+      "description": "RunningLamp (live status), HereDot (current selection only) and the dashed Sample tag for demo data.",
+      "html": "<div class=\"ds-marks\"><span class=\"ds-lamp\"><span></span>Одоо явж байна</span><span class=\"ds-here\" aria-hidden=\"true\"></span><span class=\"ds-sample\">Жишээ</span></div>",
+      "css": ".ds-marks { display: flex; align-items: center; gap: 20px; font-family: var(--font-body, Golos Text, \"Segoe UI\", sans-serif); } .ds-lamp { display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px 4px 8px; border-radius: 9999px; background: var(--color-board, #121214); color: var(--color-led, #ffb020); font-size: 0.875rem; font-weight: 700; white-space: nowrap; } .ds-lamp span { width: 10px; height: 10px; border-radius: 9999px; background: var(--color-led, #ffb020); box-shadow: 0 0 6px 1px rgb(255 176 32 / 0.7); } .ds-here { display: block; width: 28px; height: 28px; box-sizing: border-box; border: 5px solid #fff; border-radius: 9999px; background: var(--color-ink, #1d1d1f); box-shadow: 0 0 0 4px var(--color-ink, #1d1d1f); } .ds-sample { display: inline-flex; align-items: center; padding: 4px 10px; border: 2px dashed var(--color-ink-soft, #4a4a50); border-radius: 9999px; color: var(--color-ink-soft, #4a4a50); font-size: 0.75rem; font-weight: 600; }"
+    },
+    {
+      "name": "Line Rail",
+      "kind": "nav",
+      "refersTo": "sign-panel",
+      "description": "Station rail inside a sign panel: line-colour bar with 5px ring stops; the black HereDot marks the active stop.",
+      "html": "<nav class=\"ds-rail\" aria-label=\"Ангилал\"><div class=\"ds-rail-bar\"></div><ol><li><span class=\"ds-stop\"></span><a href=\"#\">Тавилга</a></li><li class=\"is-here\"><span class=\"ds-here\"></span><a href=\"#\" aria-current=\"true\">Хувцас</a></li><li><span class=\"ds-stop\"></span><a href=\"#\">Гутал</a></li><li><span class=\"ds-stop\"></span><a href=\"#\">Гэр ахуй</a></li></ol></nav>",
+      "css": ".ds-rail { position: relative; max-width: 26rem; padding: 20px 16px 12px; border: 3px solid var(--color-ink, #1d1d1f); border-radius: 28px; background: var(--color-paper, #fff); font-family: var(--font-body, Golos Text, \"Segoe UI\", sans-serif); } .ds-rail-bar { position: absolute; left: 12%; right: 12%; top: 33px; height: 10px; border-radius: 9999px; background: var(--line, var(--color-autumn, #b85207)); } .ds-rail ol { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); margin: 0; padding: 0; list-style: none; } .ds-rail li { display: flex; flex-direction: column; align-items: center; gap: 8px; } .ds-stop { display: block; width: 24px; height: 24px; margin: 2px 0; box-sizing: border-box; border: 5px solid var(--line, var(--color-autumn, #b85207)); border-radius: 9999px; background: #fff; } .ds-rail .ds-here { display: block; width: 28px; height: 28px; box-sizing: border-box; border: 5px solid #fff; border-radius: 9999px; background: var(--color-ink, #1d1d1f); box-shadow: 0 0 0 4px var(--color-ink, #1d1d1f); } .ds-rail a { color: var(--color-ink-soft, #4a4a50); font-size: 0.875rem; font-weight: 600; text-decoration: none; } .ds-rail .is-here a { color: var(--color-ink, #1d1d1f); font-weight: 700; } .ds-rail a:hover { text-decoration: underline; text-underline-offset: 0.2em; text-decoration-thickness: 2px; } .ds-rail a:focus-visible { outline: 3px solid var(--color-ink, #1d1d1f); outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Season Line",
+    "overview": "The store is a Seoul-style metro map. Each season is a numbered, coloured line (1 Spring, 2 Summer, 3 Autumn, 4 Winter); each category is a station on that line (1 Furniture, 2 Clothing, 3 Shoes, 4 Home); each product is a stop with a station code such as `3-02`. The visual language is transit wayfinding read through white enamel signage: thick ink borders, generous rounded corners, two-tone line-colour bands, a rail with ring stops, and a black LED destination board with amber dot-matrix type. It is bold and legible at arm's length on a phone, not soft or editorial.\n\nOne line is always \"running\" on the page. The `--line` and `--line-soft` custom properties (default autumn) are rewritten together as the visitor scrolls past `data-line` sections or enters a season. Everything you act on or follow (primary buttons, the cart button, add buttons, rails, ring stops, the header's line band) takes the deep tone; every region you read (marquee, signup panel, cart drawer header, checkout confirmation header, product station sign) takes the soft tone, and the header band re-opens like platform doors. Colour therefore carries position, not decoration.\n\nHand-drawn marker doodles in a single ink and a single stroke weight add warmth on top of the signage grid; they never carry meaning. Imagery is authored placeholder illustration (SVG cutouts) standing on the rail, always tagged as an example until real photography exists.",
+    "keyCharacteristics": [
+      "Metro-map metaphor: seasons are lines, categories are stations, products are stops with codes.",
+      "3px ink borders and 22–28px radii on every sign, module and panel; pills for every control.",
+      "Four season lines, each in two tones of one hue: deep for things you act on or follow (white text), soft for regions you read (ink text).",
+      "One running line (`--line` / `--line-soft`) colours the interactive chrome and changes with context.",
+      "Black LED board with amber dot-matrix type for announcements and \"running now\" status.",
+      "One black \"you are here\" dot, reserved for the current selection.",
+      "Flat: depth comes from borders, bands and cutouts, never from drop shadows."
+    ],
+    "rules": [
+      {
+        "name": "The Two-Tone Rule",
+        "body": "Each line has exactly two tones of one hue. Deep is for anything you act on or follow, and carries white text. Soft is for regions you read, and carries ink text. No third tint, no opacity wash, and never deep text on a soft region.",
+        "section": "colors"
+      },
+      {
+        "name": "The Running Line Rule",
+        "body": "Interactive chrome uses `var(--line)` and running soft regions use `var(--line-soft)`, not a fixed season colour. A section declares its line with `data-line`; the chrome follows. Season and product pages set both variables on their wrapper.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Black Dot Rule",
+        "body": "The filled black dot with a white ring and ink halo means \"you are here\" and marks only the current selection: the hero product's stop, the active station filter, the selected size. Status (\"running now\") uses the amber RunningLamp instead.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two-Check Face Rule",
+        "body": "Any display face must (1) draw Mongolian ү, ө and Ө itself, not through a fallback, and (2) use standard Cyrillic letterforms. Unbounded failed the first check (ү/ө fell back to a scaled substitute). Montserrat Alternates failed the second (И looked like Latin U, д like g, т like m), and so does Tektur (д like g). Rubik passed both and served as an interim face; Geologica replaced it on the user's request for a more distinctive heading voice, and passes both. The body face is held to the same two checks.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Figures Rule",
+        "body": "Every number a shopper compares (price, count, size, station code, line number) is set with tabular figures.",
+        "section": "typography"
+      },
+      {
+        "name": "The Signage Caps Rule",
+        "body": "Uppercase belongs to board-type surfaces only: the LED board, the marquee and the sold-out banner. Headings and labels stay in sentence case.",
+        "section": "typography"
+      },
+      {
+        "name": "The Lit-Only Glow Rule",
+        "body": "Glow means a light source: LED type and lamps on Board black. Nothing on paper glows or casts a shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do route every interactive colour through `var(--line)` (and running soft regions through `var(--line-soft)`), and declare a section's line with `data-line`.",
+      "Do use the deep tone with white text for anything you act on or follow, and the soft tone with ink text for regions you read.",
+      "Do give every sign, module and panel a 3px ink border with a 22px or 28px radius, and make every control a pill or circle at least 44px.",
+      "Do put products, sizes, stations and price bands on a rail with 5px ring stops.",
+      "Do mark every piece of demo data or unconfirmed claim with the dashed Sample tag (\"Жишээ\", \"Нөхцөл тодорхойгүй\").",
+      "Do write origin as \"Солонгосоос оруулж ирсэн\".",
+      "Do set prices, counts, sizes and station codes in Geologica with tabular figures, formatted `₮12,345`.",
+      "Do test any new display face for native Mongolian ү/ө/Ө and standard Cyrillic shapes before adopting it.",
+      "Do stop all motion under `prefers-reduced-motion`."
+    ],
+    "donts": [
+      "Don't use the black \"you are here\" dot for anything except the current selection; use the amber RunningLamp for \"running now\".",
+      "Don't invent a third tone, fade a line colour with opacity, put white text on a soft tone, or set deep-tone text on a soft region.",
+      "Don't add drop shadows to cards, buttons or panels; glow belongs only to the LED board and lamps.",
+      "Don't write \"Made in Korea\" or \"Солонгосоос импортолсон\".",
+      "Don't use Unbounded, Montserrat Alternates or Tektur, or any face that fails the Two-Check Face Rule.",
+      "Don't let a doodle carry meaning or use a second stroke weight.",
+      "Don't present demo prices, stock, delivery or imagery without the Sample tag."
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none" stroke="#1d1d1f" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"><title>Аяганы иж бүрдэл (жишээ зураг)</title><!-- Placeholder illustration authored for Online Shop -->
+<path d="M60 160h120v150c0 20-15 30-30 30H90c-15 0-30-10-30-30z" fill="#2448c9"/>
+<path d="M180 190c40 0 40 70 0 70"/>
+<path d="M210 140h120v170c0 20-15 30-30 30h-60c-15 0-30-10-30-30z" fill="#fff"/>
+<path d="M330 175c40 0 40 70 0 70"/>
+<path d="M210 200h120" stroke="#2448c9" stroke-width="12"/>
+<path d="M100 120c-10-20 10-30 0-50M150 120c-10-20 10-30 0-50M270 100c-10-20 10-30 0-50" stroke-width="5"/>
+</svg>

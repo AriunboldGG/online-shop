@@ -1,0 +1,413 @@
+[
+  {
+    "id": "p01",
+    "slug": "puffer-jacket",
+    "name": "Хөвөн дүүргэгчтэй пуфер куртик",
+    "price": 289000,
+    "category": "clothing",
+    "seasons": [
+      "autumn",
+      "winter"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "soldOutSizes": [
+      "XL"
+    ],
+    "dimensions": null,
+    "colors": [
+      "orange",
+      "black"
+    ],
+    "badge": "new",
+    "soldOut": false,
+    "image": "/products/puffer-jacket.svg",
+    "placeholder": true
+  },
+  {
+    "id": "p02",
+    "slug": "wool-coat",
+    "name": "Ноосон урт пальто",
+    "price": 349000,
+    "category": "clothing",
+    "seasons": [
+      "winter"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "dimensions": null,
+    "colors": [
+      "blue",
+      "grey"
+    ],
+    "badge": "new",
+    "soldOut": false,
+    "image": "/products/wool-coat.svg",
+    "placeholder": true
+  },
+  {
+    "id": "p03",
+    "slug": "knit-sweater",
+    "name": "Зузаан сүлжмэл цамц",
+    "price": 129000,
+    "category": "clothing",
+    "seasons": [
+      "autumn"
+    ],
+    "sizes": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "soldOutSizes": [
+      "M"
+    ],
+    "dimensions": null,
+    "colors": [
+      "yellow",
+      "beige"
+    ],
+    "badge": "low",
+    "soldOut": false,
+    "image": "/products/knit-sweater.svg",
+    "placeholder": true
+  },
+  {
+    "id": "p04",
+    "slug": "ankle-boots",
+    "name": "Арьсан богино түрийтэй гутал",
+    "price": 219000,
+    "category": "shoes",
+    "seasons": [
+      "autumn",
+      "winter"
+    ],
+    "sizes": [
+      "230",
+      "235",
+      "240",
+      "245",
+      "250",
+      "255",
+      "260",
+      "265",
+      "270"
+    ],
+    "soldOutSizes": [
+      "240",
+      "265"
+    ],
+    "dimensions": null,
+    "colors": [
+      "brown",
+      "black"
+    ],
+    "badge": "new",
+    "soldOut": false,
+    "image": "/products/ankle-boots.svg",
+    "placeholder": true
+  },
+  {
+    "id": "p05",
+    "slug": "lounge-chair",
+    "name": "Зөөлөн суудалтай амралтын сандал",
+    "price": 459000,
+    "category": "furniture",
+    "seasons": [
+      "autumn"
+    ],
+    "sizes": [],
+    "soldOutSizes": [],
+    "dimensions": "78 × 82 × 74 см",
+    "colors": [
+      "orange",
+      "beige"
+    ],
+    "badge": "new",
+    "soldOut": false,
+    "image": "/products/lounge-chair.svg",
+    "placeholder": true
+  },
+  {
+    "id": "p06",
+    "slug": "wool-blanket",
+    "name": "Ноосон хөнжил",
+    "price": 99000,
+    "category": "home",
+    "seasons": [
+      "autumn",
+      "winter"
+    ],
+    "sizes": [],
+    "soldOutSizes": [],
+    "dimensions": "150 × 200 см",
+    "colors": [
+      "pink",
+      "white"
+    ],
+    "badge": null,
+    "soldOut": true,
+    "image": "/products/wool-blanket.svg",
+    "placeholder": true
+  },
+  {
+    "id": "p07",
+    "slug": "mug-set",
+    "name": "Шаазан аяганы иж бүрдэл",
+    "price": 59000,
+    "category": "home",
+    "seasons": [
+      "winter"
+    ],
+    "sizes": [],
+    "soldOutSizes": [],
+    "dimensions": "9 × 9 × 10 см, 2 ширхэг",
+    "colors": [
+      "blue",
+      "white"
+    ],
+    "badge": "new",
+    "soldOut": false,
+    "image": "/products/mug-set.svg",
+    "placeholder": true
+  },
+  {
+    "id": "p08",
+    "slug": "house-slippers",
+    "name": "Гэрийн зөөлөн шаахай",
+    "price": 39000,
+    "category": "shoes",
+    "seasons": [
+      "winter"
+    ],
+    "sizes": [
+      "230",
+      "240",
+      "250",
+      "260",
+      "270"
+    ],
+    "soldOutSizes": [],
+    "dimensions": null,
+    "colors": [
+      "blue",
+      "beige"
+    ],
+    "badge": "low",
+    "soldOut": false,
+    "image": "/products/house-slippers.svg",
+    "placeholder": true
+  },
+  {
+    "id": "p09",
+    "slug": "light-jacket",
+    "name": "Хөнгөн хаврын куртик",
+    "price": 169000,
+    "category": "clothing",
+    "seasons": [
+      "spring"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "dimensions": null,
+    "colors": [
+      "pink",
+      "white"
+    ],
+    "badge": null,
+    "soldOut": false,
+    "image": "/products/light-jacket.svg",
+    "placeholder": true
+  },
+  {
+    "id": "p10",
+    "slug": "canvas-sneakers",
+    "name": "Даавуун пүүз",
+    "price": 119000,
+    "category": "shoes",
+    "seasons": [
+      "spring",
+      "summer"
+    ],
+    "sizes": [
+      "230",
+      "235",
+      "240",
+      "245",
+      "250",
+      "255",
+      "260",
+      "265",
+      "270",
+      "275",
+      "280",
+      "285",
+      "290"
+    ],
+    "soldOutSizes": [
+      "250"
+    ],
+    "dimensions": null,
+    "colors": [
+      "white",
+      "green"
+    ],
+    "badge": null,
+    "soldOut": false,
+    "image": "/products/canvas-sneakers.svg",
+    "placeholder": true
+  },
+  {
+    "id": "p11",
+    "slug": "side-table",
+    "name": "Модон дугуй хажуугийн ширээ",
+    "price": 189000,
+    "category": "furniture",
+    "seasons": [
+      "summer"
+    ],
+    "sizes": [],
+    "soldOutSizes": [],
+    "dimensions": "45 × 45 × 52 см",
+    "colors": [
+      "brown"
+    ],
+    "badge": null,
+    "soldOut": false,
+    "image": "/products/side-table.svg",
+    "placeholder": true
+  },
+  {
+    "id": "p12",
+    "slug": "floor-lamp",
+    "name": "Даавуун бүрхүүлтэй шалны гэрэл",
+    "price": 239000,
+    "category": "home",
+    "seasons": [
+      "spring",
+      "autumn"
+    ],
+    "sizes": [],
+    "soldOutSizes": [],
+    "dimensions": "40 × 40 × 155 см",
+    "colors": [
+      "beige",
+      "green"
+    ],
+    "badge": null,
+    "soldOut": false,
+    "image": "/products/floor-lamp.svg",
+    "placeholder": true
+  },
+  {
+    "id": "p13",
+    "slug": "linen-shirt",
+    "name": "Сул цамц",
+    "price": 89000,
+    "category": "clothing",
+    "seasons": [
+      "spring",
+      "summer"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "soldOutSizes": [],
+    "dimensions": null,
+    "colors": [
+      "white",
+      "green"
+    ],
+    "badge": "new",
+    "soldOut": false,
+    "image": "/products/linen-shirt.svg",
+    "placeholder": true
+  },
+  {
+    "id": "p14",
+    "slug": "strap-sandals",
+    "name": "Оосортой зуны шаахай",
+    "price": 69000,
+    "category": "shoes",
+    "seasons": [
+      "summer"
+    ],
+    "sizes": [
+      "230",
+      "235",
+      "240",
+      "245",
+      "250",
+      "255",
+      "260"
+    ],
+    "soldOutSizes": [],
+    "dimensions": null,
+    "colors": [
+      "brown",
+      "black"
+    ],
+    "badge": null,
+    "soldOut": false,
+    "image": "/products/strap-sandals.svg",
+    "placeholder": true
+  },
+  {
+    "id": "p15",
+    "slug": "rattan-basket",
+    "name": "Нэхмэл сагс",
+    "price": 45000,
+    "category": "home",
+    "seasons": [
+      "spring",
+      "summer"
+    ],
+    "sizes": [],
+    "soldOutSizes": [],
+    "dimensions": "35 × 35 × 30 см",
+    "colors": [
+      "beige"
+    ],
+    "badge": "low",
+    "soldOut": false,
+    "image": "/products/rattan-basket.svg",
+    "placeholder": true
+  },
+  {
+    "id": "p16",
+    "slug": "low-bookshelf",
+    "name": "Намхан номын тавиур",
+    "price": 329000,
+    "category": "furniture",
+    "seasons": [
+      "spring",
+      "winter"
+    ],
+    "sizes": [],
+    "soldOutSizes": [],
+    "dimensions": "120 × 30 × 80 см",
+    "colors": [
+      "brown",
+      "white"
+    ],
+    "badge": null,
+    "soldOut": true,
+    "image": "/products/low-bookshelf.svg",
+    "placeholder": true
+  }
+]

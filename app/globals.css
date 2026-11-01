@@ -1,26 +1,219 @@
 @import "tailwindcss";
 
+@theme {
+  --color-ink: #1d1d1f;
+  --color-ink-soft: #4a4a50;
+  --color-paper: #ffffff;
+  --color-platform: #f3f2ee;
+  --color-rule: #d9d8d2;
+  --color-led: #ffb020;
+  --color-board: #121214;
+
+  /* Each season line has two tones of one hue. Deep: actions, rails, rings, badges (white text >= 4.9:1).
+     Soft: large regions with ink text (>= 11.5:1). Derived in OKLCH; see DESIGN.md. */
+  --color-spring: #bf3d6d; /* oklch(0.56 0.17 2) soft spring pink, deep */
+  --color-spring-soft: #ffd0db; /* oklch(0.90 0.055 2) */
+  --color-summer: #08822e; /* oklch(0.53 0.155 147) summer green (user-specified), deep */
+  --color-summer-soft: #c1f0c5; /* oklch(0.91 0.075 147) */
+  --color-autumn: #b85207; /* oklch(0.56 0.15 48) warm autumn orange, deep */
+  --color-autumn-soft: #fccda5; /* oklch(0.88 0.075 62) */
+  --color-winter: #50667c; /* oklch(0.50 0.045 250) cool winter grey-blue, deep */
+  --color-winter-soft: #d3e0ec; /* oklch(0.90 0.022 250) */
+
+  --font-display: var(--font-display-face), "Segoe UI", sans-serif;
+  --font-body: var(--font-body-face), "Segoe UI", sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* The running line. SeasonFlood rewrites it as the visitor rides the season rail. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --line: var(--color-autumn);
+  --line-soft: var(--color-autumn-soft);
+  color-scheme: light;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.55;
+  caret-color: var(--line);
+  font-optical-sizing: auto;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Headings break evenly; body copy avoids one-word last lines. Both are progressive. */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+p,
+li,
+dd {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--line);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-ink);
+  outline-offset: 3px;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-ink) transparent;
+}
+
+a {
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 2px;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.flood {
+  background-color: var(--line);
+  transition: background-color 0.5s var(--ease-out-expo);
+}
+
+/* Large regions take the soft tone of the running line and carry ink text. */
+.flood-soft {
+  background-color: var(--line-soft);
+  color: var(--color-ink);
+  transition: background-color 0.5s var(--ease-out-expo);
+}
+
+/* LED destination board: amber type seen through a dot screen. */
+.led-dots {
+  position: relative;
+}
+.led-dots::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, var(--color-board) 0.7px, transparent 0.7px),
+    linear-gradient(var(--color-board) 0.7px, transparent 0.7px);
+  background-size: 2.5px 2.5px;
+  opacity: 0.9;
+}
+.led-glow {
+  color: var(--color-led);
+  text-shadow: 0 0 6px rgb(255 176 32 / 0.55);
+}
+
+@keyframes led-flip {
+  0%, 42% { transform: translateY(0); }
+  50%, 92% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+.led-track {
+  animation: led-flip 9s var(--ease-out-expo) infinite;
+}
+.led-board:hover .led-track,
+.led-board:focus-within .led-track {
+  animation-play-state: paused;
+}
+
+@keyframes crawl {
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: crawl 28s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Platform doors: the line band opens from the centre when the line changes. */
+@keyframes doors {
+  from { clip-path: inset(0 50% 0 50%); }
+  to { clip-path: inset(0 0 0 0); }
+}
+.doors {
+  animation: doors 0.7s var(--ease-out-expo);
+}
+
+@keyframes drawer-in {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+.drawer-in {
+  animation: drawer-in 0.45s var(--ease-out-expo);
+}
+
+@keyframes sheet-in {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+.sheet-in {
+  animation: sheet-in 0.45s var(--ease-out-expo);
+}
+
+/* Filtered results settle onto the rail from an already-visible start. */
+@keyframes settle {
+  from { opacity: 0.4; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+.settle > li {
+  animation: settle 0.5s var(--ease-out-expo) both;
+}
+.settle > li:nth-child(2) { animation-delay: 40ms; }
+.settle > li:nth-child(3) { animation-delay: 80ms; }
+.settle > li:nth-child(n + 4) { animation-delay: 120ms; }
+
+/* A fixed buy bar reserves its own height below the footer, so nothing hides behind it. */
+@media (width < 64rem) {
+  body:has(.buy-bar) {
+    padding-bottom: 5.75rem;
+  }
+}
+
+/* Lookbook frames start on the content column but scroll out to the screen edge. */
+.lookbook-scroller {
+  --gutter: max(1rem, calc((100vw - 72rem) / 2 + 1rem));
+  scroll-padding-inline: var(--gutter);
+}
+.lookbook-scroller > ul {
+  padding-inline: var(--gutter);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .led-track,
+  .marquee-track,
+  .doors,
+  .drawer-in,
+  .sheet-in,
+  .settle > li {
+    animation: none;
+  }
+  .flood,
+  .flood-soft {
+    transition: none;
+  }
 }
