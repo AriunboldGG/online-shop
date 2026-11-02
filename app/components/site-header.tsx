@@ -3,9 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
-import { catalog, formatPrice, getSeason } from "@/lib/catalog";
+import { formatPrice, getCategory, getSeason, searchCatalog } from "@/lib/catalog";
 import { useCart } from "./cart";
-import { BagIcon, CloseIcon, MenuIcon, SearchIcon } from "./icons";
+import { ArrowIcon, BagIcon, CloseIcon, MenuIcon, SearchIcon } from "./icons";
+import { SearchField, searchSuggestions } from "./search-field";
 import { useLine } from "./line-flood";
 import { LineBadge } from "./signage";
 
@@ -139,48 +140,79 @@ function SearchPanel({ id, onDone }: { id: string; onDone: () => void }) {
   const input = useRef<HTMLInputElement>(null);
   useEffect(() => input.current?.focus(), []);
 
-  const q = query.trim().toLowerCase();
-  const results = q ? catalog.filter((p) => p.name.toLowerCase().includes(q)).slice(0, 6) : [];
+  const q = query.trim();
+  const matches = searchCatalog(q);
+  const results = matches.slice(0, 5);
+  const all = `/search?q=${encodeURIComponent(q)}`;
 
   return (
     <div id={id} className="border-b-[3px] border-ink bg-paper">
-      <div className="mx-auto max-w-6xl px-4 py-4">
-        <label htmlFor={`${id}-input`} className="sr-only">
-          Бараа хайх
-        </label>
-        <div className="flex items-center gap-3 rounded-full border-[3px] border-ink px-4">
-          <SearchIcon />
-          <input
-            ref={input}
-            id={`${id}-input`}
-            type="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Жишээ нь: куртик, гутал, сандал"
-            className="h-12 w-full bg-transparent text-base outline-none placeholder:text-ink-soft"
-          />
-        </div>
-        {q && (
-          <ul className="mt-3 divide-y-2 divide-rule" aria-live="polite">
-            {results.length === 0 ? (
-              <li className="py-3 text-ink-soft">“{query}” гэсэн бараа олдсонгүй. Өөр үгээр хайгаад үзээрэй.</li>
-            ) : (
-              results.map((p) => (
-                <li key={p.id}>
-                  <Link
-                    href={`/product/${p.slug}`}
-                    onClick={onDone}
-                    className="flex min-h-14 items-center gap-3 py-2 no-underline"
+      <div className="mx-auto max-w-3xl px-4 py-4">
+        <SearchField id={`${id}-input`} value={query} onChange={setQuery} inputRef={input} onSubmitted={onDone} />
+
+        {!q ? (
+          <div className="mt-4">
+            <p className="text-sm font-semibold text-ink-soft">Түгээмэл хайлт</p>
+            <ul className="mt-2 flex flex-wrap gap-2">
+              {searchSuggestions.map((word) => (
+                <li key={word}>
+                  <button
+                    type="button"
+                    onClick={() => setQuery(word)}
+                    className="inline-flex min-h-11 items-center rounded-xl border-[3px] border-ink px-3.5 font-semibold hover:bg-platform"
                   >
-                    <Image src={p.image} alt="" width={44} height={44} unoptimized />
-                    <span className="flex-1 font-semibold">{p.name}</span>
-                    <LineBadge season={p.seasons[0]} size={22} />
-                    <span className="font-display text-sm font-bold tabular">{formatPrice(p.price)}</span>
-                  </Link>
+                    {word}
+                  </button>
                 </li>
-              ))
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <div aria-live="polite">
+            {results.length === 0 ? (
+              <div className="mt-4 rounded-[22px] bg-platform px-4 py-4">
+                <p className="font-display font-bold">“{q}” гэсэн бараа олдсонгүй</p>
+                <p className="mt-1 text-sm text-ink-soft">
+                  Өөр үгээр хайх эсвэл{" "}
+                  <Link href="/shop" onClick={onDone} className="font-semibold text-ink">
+                    бүх барааг үзээрэй
+                  </Link>
+                  .
+                </p>
+              </div>
+            ) : (
+              <>
+                <ul className="mt-3 divide-y-2 divide-rule">
+                  {results.map((p) => (
+                    <li key={p.id}>
+                      <Link
+                        href={`/product/${p.slug}`}
+                        onClick={onDone}
+                        className="flex min-h-16 items-center gap-3 py-2 no-underline hover:bg-platform"
+                      >
+                        <span className="block size-12 shrink-0 overflow-hidden rounded-full border-2 border-ink bg-platform">
+                          <Image src={p.image} alt="" width={40} height={40} unoptimized className="size-full object-cover" />
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block truncate font-semibold">{p.name}</span>
+                          <span className="block text-sm text-ink-soft">{getCategory(p.category).name}</span>
+                        </span>
+                        <LineBadge season={p.seasons[0]} size={22} />
+                        <span className="font-display text-sm font-bold tabular">{formatPrice(p.price)}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href={all}
+                  onClick={onDone}
+                  className="mt-3 flex min-h-12 items-center justify-center gap-2 rounded-full border-[3px] border-ink font-display font-bold no-underline hover:bg-platform"
+                >
+                  Бүх үр дүн (<span className="tabular">{matches.length}</span>) <ArrowIcon size={20} />
+                </Link>
+              </>
             )}
-          </ul>
+          </div>
         )}
       </div>
     </div>

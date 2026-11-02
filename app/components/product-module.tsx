@@ -24,14 +24,14 @@ export function ProductModule({ product, on, stock = true }: { product: Product;
         </span>
       </div>
 
-      <div className="relative aspect-square">
+      <div className="relative aspect-square overflow-hidden">
         <Image
           src={product.image}
           alt={product.name}
           fill
           unoptimized
           sizes="(min-width: 1024px) 25vw, 50vw"
-          className={`object-contain p-4 sm:p-5 transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:-translate-y-1.5 ${
+          className={`object-cover transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:scale-[1.04] ${
             product.soldOut ? "opacity-35 grayscale" : ""
           }`}
         />

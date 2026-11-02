@@ -184,13 +184,40 @@ a {
   }
 }
 
-/* Lookbook frames start on the content column but scroll out to the screen edge. */
-.lookbook-scroller {
+/* Hanging products swing once from their clip when touched; the swing settles on the expo curve. */
+@keyframes swing {
+  0% { rotate: 0deg; }
+  25% { rotate: -3.5deg; }
+  55% { rotate: 2deg; }
+  80% { rotate: -0.8deg; }
+  100% { rotate: 0deg; }
+}
+.hang:hover .hang-swing,
+.hang:focus-within .hang-swing {
+  animation: swing 1.1s var(--ease-out-expo);
+}
+/* Prints hang a little off true, the way pegged photos do. */
+li:nth-child(3n + 1) > .hang .hang-print { rotate: -1.4deg; }
+li:nth-child(3n + 2) > .hang .hang-print { rotate: 1deg; }
+
+/* Pointer devices get a clean line until hover; touch screens always show the cart button. */
+@media (hover: hover) {
+  .hang-action {
+    opacity: 0;
+    transform: scale(0.85);
+    transition: opacity 0.2s ease-out, transform 0.3s var(--ease-out-expo);
+  }
+  .hang:hover .hang-action,
+  .hang:focus-within .hang-action {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* The drop line runs edge to edge; its first stop aligns with the content column. */
+.drop-scroller {
   --gutter: max(1rem, calc((100vw - 72rem) / 2 + 1rem));
   scroll-padding-inline: var(--gutter);
-}
-.lookbook-scroller > ul {
-  padding-inline: var(--gutter);
 }
 
 .no-scrollbar {
@@ -209,8 +236,12 @@ a {
   .doors,
   .drawer-in,
   .sheet-in,
-  .settle > li {
-    animation: none;
+  .settle > li,
+  .hang-swing {
+    animation: none !important;
+  }
+  .hang-action {
+    transition: none;
   }
   .flood,
   .flood-soft {

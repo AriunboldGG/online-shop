@@ -12,8 +12,8 @@ import {
 import { DoodleArrow, DoodleCircle, DoodleSpark, DoodleSquiggle } from "./components/doodles";
 import { FloodObserver } from "./components/flood-observer";
 import { ArrowIcon } from "./components/icons";
+import { DropLine } from "./components/drop-line";
 import { Lookbook } from "./components/lookbook";
-import { ProductModule } from "./components/product-module";
 import { SeasonSignup } from "./components/season-signup";
 import { HereDot, LineBadge, RunningLamp, Sample } from "./components/signage";
 
@@ -46,7 +46,7 @@ function SectionHead({
 }
 
 export default function Home() {
-  const newArrivals = [...catalog].sort((a, b) => Number(b.badge === "new") - Number(a.badge === "new")).slice(0, 8);
+  const newArrivals = [...catalog].sort((a, b) => Number(b.badge === "new") - Number(a.badge === "new")).slice(0, 10);
 
   return (
     <>
@@ -55,35 +55,22 @@ export default function Home() {
       <Marquee />
       <SeasonLines />
       <Stations />
-      {/* New arrivals and the lookbook read as one browsing stretch, so the gap between them is the tighter one. */}
-      <section data-line="autumn" aria-labelledby="new-title" className="mx-auto max-w-6xl px-4 pb-10 pt-16 lg:pb-14 lg:pt-24">
-        <SectionHead
-          id="new-title"
-          title="Шинээр ирсэн"
-          lead={
-            <span className="flex flex-wrap items-center gap-2">
-              Бараа, үнэ, зураг бүгд жишээ. <Sample />
-            </span>
-          }
-          action={
-            <Link href="/shop" className="inline-flex min-h-11 items-center gap-2 font-semibold">
-              Бүгдийг үзэх <ArrowIcon size={20} />
-            </Link>
-          }
-        />
-        <ul className="mt-8 grid grid-cols-2 gap-x-3 gap-y-5 md:grid-cols-3 lg:mt-10 lg:grid-cols-4 lg:gap-x-6 lg:gap-y-8">
-          {newArrivals.map((p) => (
-            <li key={p.id} className="flex">
-              <ProductModule product={p} />
-            </li>
-          ))}
-        </ul>
-        <Link
-          href="/shop"
-          className="mt-8 flex min-h-13 items-center justify-center gap-2 rounded-full border-[3px] border-ink font-display font-bold no-underline hover:bg-platform sm:hidden"
-        >
-          Бүх барааг үзэх <ArrowIcon size={20} />
-        </Link>
+      {/* New arrivals hang on one wire that runs off both screen edges; the lookbook follows as the same browsing stretch. */}
+      <section data-line="autumn" aria-labelledby="new-title" className="pb-10 pt-16 lg:pb-14 lg:pt-24">
+        <div className="mx-auto max-w-6xl px-4">
+          <SectionHead
+            id="new-title"
+            title="Шинээр ирсэн"
+            lead={
+              <span className="flex flex-wrap items-center gap-2">
+                Гүйлгэж үзээд, сонирхсон бараагаа дараарай. Бараа, үнэ, зураг бүгд жишээ. <Sample />
+              </span>
+            }
+          />
+        </div>
+        <div className="mt-10 lg:mt-14">
+          <DropLine products={newArrivals} />
+        </div>
       </section>
       <Lookbook />
       <WhyKorea />
@@ -123,7 +110,7 @@ function Hero() {
         <div className="relative bg-paper px-5 pb-5 lg:px-10">
           {/* The product stands over its own stop on the rail below (a third of the way along). */}
           <div className="relative h-[13.5rem] sm:h-[22rem] lg:h-[30rem]">
-            <div className="absolute inset-y-0 left-1/3 w-[60%] -translate-x-1/2 lg:w-[54%]">
+            <div className="absolute bottom-3 left-1/3 top-4 aspect-square max-w-[62%] -translate-x-1/2 overflow-hidden rounded-[22px] border-[3px] border-ink lg:bottom-6 lg:top-8">
               <Image
                 src={featured.image}
                 alt={featured.name}
@@ -131,7 +118,7 @@ function Hero() {
                 priority
                 unoptimized
                 sizes="(min-width: 1024px) 32rem, 60vw"
-                className="object-contain pb-3 pt-4 lg:pb-6 lg:pt-8"
+                className="object-cover"
               />
             </div>
             <div className="absolute right-0 top-8 flex flex-col items-end lg:left-[62%] lg:right-auto lg:top-20 lg:items-start">
@@ -280,10 +267,10 @@ function SeasonCard({ season }: { season: Season }) {
           {items.slice(0, 3).map((p, i) => (
             <li
               key={p.id}
-              className="grid aspect-square w-[30%] max-w-36 place-items-center rounded-full border-[3px] border-ink bg-paper p-2 transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:-translate-y-2"
+              className="aspect-square w-[30%] max-w-36 overflow-hidden rounded-full border-[3px] border-ink bg-paper transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:-translate-y-2"
               style={{ transitionDelay: `${i * 60}ms` }}
             >
-              <Image src={p.image} alt="" width={160} height={160} unoptimized className="size-full object-contain" />
+              <Image src={p.image} alt="" width={160} height={160} unoptimized className="size-full object-cover" />
             </li>
           ))}
         </ul>
@@ -321,14 +308,14 @@ function Stations() {
                     <span className="font-display text-base font-bold lg:text-lg">{c.name}</span>
                     <ArrowIcon size={20} className="transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
-                  <div className="relative aspect-[4/3]">
+                  <div className="relative aspect-[4/3] overflow-hidden">
                     <Image
                       src={c.image}
                       alt=""
                       fill
                       unoptimized
                       sizes="(min-width: 1024px) 25vw, 50vw"
-                      className="object-contain p-4 transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:scale-105"
+                      className="object-cover transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:scale-105"
                     />
                   </div>
                   <div className="mt-auto flex items-center justify-between gap-2 border-t-2 border-ink px-3 py-2.5">
@@ -357,7 +344,7 @@ const route = [
   },
   {
     title: "Солонгосоос ачигдана",
-    body: "Бараа Солонгосоос Монгол руу тээвэрлэгдэн ирдэг.",
+    body: "info",
     sample: false,
   },
   {

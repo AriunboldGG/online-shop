@@ -219,7 +219,7 @@ export function PurchasePanel({
         </div>
         <div className="px-4 py-3">
           <p className="font-semibold">Хүргэлтийн хугацаа ба төлбөр удахгүй тодорхой болно.</p>
-          <p className="mt-1 text-sm text-ink-soft">Бараа Солонгосоос Монгол руу тээвэрлэгдэн ирдэг.</p>
+          <p className="mt-1 text-sm text-ink-soft">info</p>
           <Sample className="mt-3">Нөхцөл тодорхойгүй</Sample>
         </div>
       </div>

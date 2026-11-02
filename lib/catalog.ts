@@ -52,10 +52,10 @@ export const seasons: Season[] = [
 ];
 
 export const categories: Category[] = [
-  { id: "furniture", station: 1, name: "Тавилга", image: "/products/lounge-chair.svg" },
-  { id: "clothing", station: 2, name: "Хувцас", image: "/products/knit-sweater.svg" },
-  { id: "shoes", station: 3, name: "Гутал", image: "/products/ankle-boots.svg" },
-  { id: "home", station: 4, name: "Гэр ахуй", image: "/products/mug-set.svg" },
+  { id: "furniture", station: 1, name: "Тавилга", image: "/products/photos/lounge-chair.jpg" },
+  { id: "clothing", station: 2, name: "Хувцас", image: "/products/photos/knit-sweater.jpg" },
+  { id: "shoes", station: 3, name: "Гутал", image: "/products/photos/ankle-boots.jpg" },
+  { id: "home", station: 4, name: "Гэр ахуй", image: "/products/photos/mug-set.jpg" },
 ];
 
 // Product colours as shoppers name them. Placeholder values until real product data exists.
@@ -98,6 +98,28 @@ export function stationCode(product: Product, on: SeasonId = product.seasons[0])
   const line = getSeason(on).line;
   const station = getCategory(product.category).station;
   return `${line}-${String(station).padStart(2, "0")}`;
+}
+
+export function findCategory(slug: string) {
+  return categories.find((c) => c.id === slug);
+}
+
+// Every word must hit the product's name, category, season or a colour name, so
+// "өвлийн гутал" narrows to winter shoes instead of everything winter plus every shoe.
+export function searchCatalog(query: string) {
+  const words = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  if (words.length === 0) return [];
+  return catalog.filter((p) => {
+    const haystack = [
+      p.name,
+      getCategory(p.category).name,
+      ...p.seasons.flatMap((s) => [getSeason(s).name, getSeason(s).of]),
+      ...p.colors.map((c) => colors[c].name),
+    ]
+      .join(" ")
+      .toLowerCase();
+    return words.every((w) => haystack.includes(w));
+  });
 }
 
 const priceFormat = new Intl.NumberFormat("en-US");

@@ -25,7 +25,7 @@
     ],
     "badge": "new",
     "soldOut": false,
-    "image": "/products/puffer-jacket.svg",
+    "image": "/products/photos/puffer-jacket.jpg",
     "placeholder": true
   },
   {
@@ -50,7 +50,7 @@
     ],
     "badge": "new",
     "soldOut": false,
-    "image": "/products/wool-coat.svg",
+    "image": "/products/photos/wool-coat.jpg",
     "placeholder": true
   },
   {
@@ -77,7 +77,7 @@
     ],
     "badge": "low",
     "soldOut": false,
-    "image": "/products/knit-sweater.svg",
+    "image": "/products/photos/knit-sweater.jpg",
     "placeholder": true
   },
   {
@@ -112,7 +112,7 @@
     ],
     "badge": "new",
     "soldOut": false,
-    "image": "/products/ankle-boots.svg",
+    "image": "/products/photos/ankle-boots.jpg",
     "placeholder": true
   },
   {
@@ -133,7 +133,7 @@
     ],
     "badge": "new",
     "soldOut": false,
-    "image": "/products/lounge-chair.svg",
+    "image": "/products/photos/lounge-chair.jpg",
     "placeholder": true
   },
   {
@@ -155,7 +155,7 @@
     ],
     "badge": null,
     "soldOut": true,
-    "image": "/products/wool-blanket.svg",
+    "image": "/products/photos/wool-blanket.jpg",
     "placeholder": true
   },
   {
@@ -176,7 +176,7 @@
     ],
     "badge": "new",
     "soldOut": false,
-    "image": "/products/mug-set.svg",
+    "image": "/products/photos/mug-set.jpg",
     "placeholder": true
   },
   {
@@ -203,7 +203,7 @@
     ],
     "badge": "low",
     "soldOut": false,
-    "image": "/products/house-slippers.svg",
+    "image": "/products/photos/house-slippers.jpg",
     "placeholder": true
   },
   {
@@ -228,7 +228,7 @@
     ],
     "badge": null,
     "soldOut": false,
-    "image": "/products/light-jacket.svg",
+    "image": "/products/photos/light-jacket.jpg",
     "placeholder": true
   },
   {
@@ -266,7 +266,7 @@
     ],
     "badge": null,
     "soldOut": false,
-    "image": "/products/canvas-sneakers.svg",
+    "image": "/products/photos/canvas-sneakers.jpg",
     "placeholder": true
   },
   {
@@ -286,7 +286,7 @@
     ],
     "badge": null,
     "soldOut": false,
-    "image": "/products/side-table.svg",
+    "image": "/products/photos/side-table.jpg",
     "placeholder": true
   },
   {
@@ -308,7 +308,7 @@
     ],
     "badge": null,
     "soldOut": false,
-    "image": "/products/floor-lamp.svg",
+    "image": "/products/photos/floor-lamp.jpg",
     "placeholder": true
   },
   {
@@ -335,7 +335,7 @@
     ],
     "badge": "new",
     "soldOut": false,
-    "image": "/products/linen-shirt.svg",
+    "image": "/products/photos/linen-shirt.jpg",
     "placeholder": true
   },
   {
@@ -364,7 +364,7 @@
     ],
     "badge": null,
     "soldOut": false,
-    "image": "/products/strap-sandals.svg",
+    "image": "/products/photos/strap-sandals.jpg",
     "placeholder": true
   },
   {
@@ -385,7 +385,7 @@
     ],
     "badge": "low",
     "soldOut": false,
-    "image": "/products/rattan-basket.svg",
+    "image": "/products/photos/rattan-basket.jpg",
     "placeholder": true
   },
   {
@@ -407,7 +407,7 @@
     ],
     "badge": null,
     "soldOut": true,
-    "image": "/products/low-bookshelf.svg",
+    "image": "/products/photos/low-bookshelf.jpg",
     "placeholder": true
   }
 ]

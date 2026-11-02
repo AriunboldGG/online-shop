@@ -173,7 +173,7 @@ function CartDrawer({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
               onClick={onClose}
               className="flood min-h-12 rounded-full px-6 font-semibold text-white"
             >
-              Дэлгүүр үргэлжлүүлэх
+              Дэлгүүр рүү буцах
             </button>
           </div>
         ) : (
@@ -181,8 +181,8 @@ function CartDrawer({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
             <ul className="flex-1 divide-y-2 divide-rule overflow-y-auto px-4">
               {items.map(({ key, qty, size, color, product }) => (
                 <li key={key} className="flex gap-3 py-4">
-                  <div className="relative size-20 shrink-0 rounded-2xl border-2 border-ink bg-paper">
-                    <Image src={product!.image} alt="" fill unoptimized className="object-contain p-2" />
+                  <div className="relative size-20 shrink-0 overflow-hidden rounded-2xl border-2 border-ink bg-paper">
+                    <Image src={product!.image} alt="" fill unoptimized className="object-cover" />
                   </div>
                   <div className="flex min-w-0 flex-1 flex-col gap-1">
                     <span className="text-xs font-semibold text-ink-soft tabular">
@@ -270,7 +270,7 @@ function CartDrawer({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
                 onClick={onClose}
                 className="mt-2 min-h-11 w-full font-semibold underline"
               >
-                Дэлгүүр үргэлжлүүлэх
+                Дэлгүүр рүү буцах
               </button>
             </div>
           </>

@@ -501,8 +501,8 @@ function OrderSummary({ items, subtotal, fee, total }: { items: Item[]; subtotal
       <ul className="divide-y-2 divide-rule px-5">
         {items.map(({ key, qty, size, color, product }) => (
           <li key={key} className="flex gap-3 py-3">
-            <div className="relative size-16 shrink-0 rounded-xl border-2 border-ink">
-              <Image src={product.image} alt="" fill unoptimized className="object-contain p-1.5" />
+            <div className="relative size-16 shrink-0 overflow-hidden rounded-xl border-2 border-ink">
+              <Image src={product.image} alt="" fill unoptimized className="object-cover" />
               <span className="absolute -right-2 -top-2 grid min-w-6 place-items-center rounded-full bg-ink px-1 text-xs font-bold text-white tabular">
                 {qty}
               </span>

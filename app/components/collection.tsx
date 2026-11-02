@@ -5,15 +5,18 @@ import {
   categories,
   colors,
   getSeason,
+  seasons,
   type CategoryId,
   type ColorId,
   type Product,
   type SeasonId,
 } from "@/lib/catalog";
-import { CloseIcon } from "../../components/icons";
-import { ProductModule } from "../../components/product-module";
-import { seasonDoodles } from "../../components/season-doodles";
-import { HereDot, Sample } from "../../components/signage";
+import { CloseIcon } from "./icons";
+import { useLine } from "./line-flood";
+import { HangingProduct } from "./hanging-product";
+import { ProductModule } from "./product-module";
+import { seasonDoodles } from "./season-doodles";
+import { HereDot, LineBadge, Sample } from "./signage";
 
 type PriceId = "all" | "under50" | "50to150" | "150to300" | "over300";
 type SortId = "featured" | "price-asc" | "price-desc" | "name";
@@ -37,17 +40,19 @@ const letterSizes = ["XS", "S", "M", "L", "XL", "XXL"];
 
 type Filters = {
   category: CategoryId | "all";
+  line: SeasonId | "all";
   price: PriceId;
   sizes: string[];
   colors: ColorId[];
 };
 
-const EMPTY: Filters = { category: "all", price: "all", sizes: [], colors: [] };
+const EMPTY: Filters = { category: "all", line: "all", price: "all", sizes: [], colors: [] };
 
 function matches(p: Product, f: Filters, skip?: keyof Filters) {
   const range = prices.find((r) => r.id === f.price)!;
   return (
     (skip === "category" || f.category === "all" || p.category === f.category) &&
+    (skip === "line" || f.line === "all" || p.seasons.includes(f.line)) &&
     (skip === "price" || (p.price >= range.min && p.price < range.max)) &&
     (skip === "sizes" || f.sizes.length === 0 || p.sizes.some((s) => f.sizes.includes(s))) &&
     (skip === "colors" || f.colors.length === 0 || p.colors.some((c) => f.colors.includes(c)))
@@ -75,9 +80,27 @@ function sortProducts(list: Product[], sort: SortId) {
 const toggle = <T,>(list: T[], value: T) =>
   list.includes(value) ? list.filter((v) => v !== value) : [...list, value];
 
-export function Collection({ season, products }: { season: SeasonId; products: Product[] }) {
-  const line = getSeason(season);
-  const Signature = seasonDoodles[season].signature;
+// One collection for every list of products. On a season page the rail is that line's stations;
+// on a category page the station is fixed and the rail becomes the lines that stop there;
+// on the shop and search pages the stations ride the rail and the lines move into the filters.
+export function Collection({
+  products,
+  season,
+  rail = "category",
+  label = "Бараа",
+  look = "module",
+}: {
+  products: Product[];
+  season?: SeasonId;
+  rail?: "category" | "line";
+  label?: string;
+  // "hang" strings the results on wire, row by row; the columns butt together so each row is one line.
+  look?: "module" | "hang";
+}) {
+  const running = useLine();
+  const line = season ? getSeason(season) : null;
+  const Signature = seasonDoodles[season ?? running].signature;
+  const lineFilter = !season && rail === "category";
   const [filters, setFilters] = useState<Filters>(EMPTY);
   const [sort, setSort] = useState<SortId>("featured");
   const [sheetOpen, setSheetOpen] = useState(false);
@@ -102,11 +125,17 @@ export function Collection({ season, products }: { season: SeasonId; products: P
 
   const count = (f: Filters, skip: keyof Filters) => products.filter((p) => matches(p, f, skip)).length;
   const activeCount =
-    (filters.price !== "all" ? 1 : 0) + filters.sizes.length + filters.colors.length;
+    (filters.price !== "all" ? 1 : 0) +
+    (lineFilter && filters.line !== "all" ? 1 : 0) +
+    filters.sizes.length +
+    filters.colors.length;
 
   const chips = [
     ...(filters.category !== "all"
       ? [{ key: "cat", label: categories.find((c) => c.id === filters.category)!.name, clear: { category: "all" as const } }]
+      : []),
+    ...(filters.line !== "all"
+      ? [{ key: "line", label: `${getSeason(filters.line).of} улирал`, clear: { line: "all" as const } }]
       : []),
     ...(filters.price !== "all"
       ? [{ key: "price", label: prices.find((p) => p.id === filters.price)!.label, clear: { price: "all" as const } }]
@@ -115,21 +144,42 @@ export function Collection({ season, products }: { season: SeasonId; products: P
     ...filters.colors.map((c) => ({ key: `c-${c}`, label: colors[c].name, clear: { colors: filters.colors.filter((x) => x !== c) } })),
   ];
 
-  const fieldProps = { filters, setFilters, products, sizeOptions, colorOptions, count };
+  const fieldProps = { filters, setFilters, products, sizeOptions, colorOptions, count, lineFilter };
 
   return (
-    <section aria-label={`${line.of} цуглуулга`} className="mx-auto max-w-6xl px-4 pb-16 pt-6">
-      <StationFilter
-        value={filters.category}
-        onChange={(category) => setFilters((f) => ({ ...f, category }))}
-        counts={Object.fromEntries(
-          [{ id: "all" }, ...categories].map((c) => [
-            c.id,
-            products.filter((p) => matches(p, { ...filters, category: c.id as Filters["category"] }, undefined)).length,
-          ]),
-        )}
-        color={line.color}
-      />
+    <section aria-label={line ? `${line.of} цуглуулга` : label} className="mx-auto max-w-6xl px-4 pb-16 pt-6">
+      {rail === "category" ? (
+        <RailFilter
+          title="Ангилал"
+          stops={[{ id: "all", name: "Бүгд" }, ...categories]}
+          value={filters.category}
+          onChange={(category) => setFilters((f) => ({ ...f, category: category as Filters["category"] }))}
+          counts={Object.fromEntries(
+            [{ id: "all" }, ...categories].map((c) => [
+              c.id,
+              products.filter((p) => matches(p, { ...filters, category: c.id as Filters["category"] })).length,
+            ]),
+          )}
+          rail={line?.color ?? "var(--line)"}
+        />
+      ) : (
+        // A transfer station: the rail carries every line that stops here, each ring in its own colour.
+        <RailFilter
+          title="Улирал"
+          stops={[{ id: "all", name: "Бүгд", color: "var(--color-ink)" }, ...seasons.map((s) => ({ id: s.id, name: s.name, color: s.color }))]}
+          value={filters.line}
+          onChange={(id) => setFilters((f) => ({ ...f, line: id as Filters["line"] }))}
+          counts={Object.fromEntries(
+            [{ id: "all" }, ...seasons].map((s) => [
+              s.id,
+              products.filter((p) => matches(p, { ...filters, line: s.id as Filters["line"] })).length,
+            ]),
+          )}
+          rail={`linear-gradient(90deg, var(--color-ink) 0 12.5%, ${seasons
+            .map((s, i) => `${s.color} ${12.5 + i * 25}% ${37.5 + i * 25}%`)
+            .join(", ")})`}
+        />
+      )}
 
       <div className="mt-8 lg:grid lg:grid-cols-[15rem_1fr] lg:gap-10">
         <aside aria-label="Шүүлтүүр" className="hidden lg:block">
@@ -219,7 +269,9 @@ export function Collection({ season, products }: { season: SeasonId; products: P
               </div>
               <p className="font-display text-xl font-bold">Энэ буудал дээр бараа алга</p>
               <p className="mx-auto mt-2 max-w-[40ch] text-ink-soft">
-                Сонгосон шүүлтүүрт тохирох бараа {line.of} улиралд алга. Шүүлтүүрээ цөөлөх эсвэл өөр улиралаар аялаад үзээрэй.
+                {line
+                  ? `Сонгосон шүүлтүүрт тохирох бараа ${line.of} улиралд алга. Шүүлтүүрээ цөөлөх эсвэл өөр улиралаар аялаад үзээрэй.`
+                  : "Сонгосон шүүлтүүрт тохирох бараа алга. Шүүлтүүрээ цөөлөөд үзээрэй."}
               </p>
               <button
                 type="button"
@@ -232,11 +284,13 @@ export function Collection({ season, products }: { season: SeasonId; products: P
           ) : (
             <ul
               key={JSON.stringify(filters) + sort}
-              className="settle mt-6 grid grid-cols-2 gap-3 md:grid-cols-3 lg:gap-5"
+              className={`settle mt-6 grid grid-cols-2 md:grid-cols-3 ${
+                look === "hang" ? "gap-y-12 lg:mt-8 lg:gap-y-16" : "gap-3 lg:gap-5"
+              }`}
             >
               {results.map((p) => (
                 <li key={p.id} className="flex">
-                  <ProductModule product={p} on={season} />
+                  {look === "hang" ? <HangingProduct product={p} /> : <ProductModule product={p} on={season} />}
                 </li>
               ))}
             </ul>
@@ -251,24 +305,27 @@ export function Collection({ season, products }: { season: SeasonId; products: P
   );
 }
 
-// The line's own stations are the category filter; "you are here" marks the active one.
-function StationFilter({
+// The rail is the filter: each stop is an option, "you are here" marks the active one.
+function RailFilter({
+  title,
+  stops,
   value,
   onChange,
   counts,
-  color,
+  rail,
 }: {
-  value: Filters["category"];
-  onChange: (v: Filters["category"]) => void;
+  title: string;
+  stops: { id: string; name: string; color?: string }[];
+  value: string;
+  onChange: (v: string) => void;
   counts: Record<string, number>;
-  color: string;
+  rail: string;
 }) {
-  const stops = [{ id: "all" as const, name: "Бүгд" }, ...categories];
   return (
     <div className="rounded-[28px] border-[3px] border-ink bg-paper px-3 pb-3 pt-5 sm:px-6">
-      <h2 className="sr-only">Ангилал</h2>
+      <h2 className="sr-only">{title}</h2>
       <div className="relative">
-        <div aria-hidden="true" className="absolute inset-x-[10%] top-[18px] h-2.5 rounded-full" style={{ background: color }} />
+        <div aria-hidden="true" className="absolute inset-x-[10%] top-4.5 h-2.5 rounded-full" style={{ background: rail }} />
         <ul className="relative grid grid-cols-5">
           {stops.map((stop) => {
             const active = value === stop.id;
@@ -289,7 +346,7 @@ function StationFilter({
                     ) : (
                       <span
                         className="block size-6 rounded-full border-[5px] bg-paper"
-                        style={{ borderColor: empty ? "var(--color-rule)" : color }}
+                        style={{ borderColor: empty ? "var(--color-rule)" : (stop.color ?? rail) }}
                       />
                     )}
                   </span>
@@ -314,15 +371,50 @@ type FieldProps = {
   sizeOptions: string[];
   colorOptions: ColorId[];
   count: (f: Filters, skip: keyof Filters) => number;
+  lineFilter: boolean;
 };
 
-function FilterFields({ filters, setFilters, products, sizeOptions, colorOptions }: FieldProps) {
+function FilterFields({ filters, setFilters, products, sizeOptions, colorOptions, lineFilter }: FieldProps) {
   const priceCount = (id: PriceId) => products.filter((p) => matches(p, { ...filters, price: id })).length;
   const sizeCount = (s: string) => products.filter((p) => matches(p, { ...filters, sizes: [s] })).length;
   const colorCount = (c: ColorId) => products.filter((p) => matches(p, { ...filters, colors: [c] })).length;
+  const lineCount = (id: Filters["line"]) => products.filter((p) => matches(p, { ...filters, line: id })).length;
 
   return (
     <div className="space-y-8">
+      {lineFilter && (
+        <fieldset>
+          <legend className="font-display text-base font-bold">Улирал</legend>
+          <ul className="mt-3 space-y-1">
+            {[{ id: "all" as const, name: "Бүх улирал" }, ...seasons].map((s) => {
+              const active = filters.line === s.id;
+              return (
+                <li key={s.id}>
+                  <button
+                    type="button"
+                    aria-pressed={active}
+                    onClick={() => setFilters((f) => ({ ...f, line: s.id }))}
+                    className={`flex min-h-12 w-full items-center gap-3 rounded-xl px-2 text-left ${
+                      active ? "bg-platform font-bold" : "hover:bg-platform"
+                    }`}
+                  >
+                    {s.id === "all" ? (
+                      <span aria-hidden="true" className="grid size-7 shrink-0 place-items-center">
+                        <span className="size-5 rounded-full border-[4px] border-ink bg-paper" />
+                      </span>
+                    ) : (
+                      <LineBadge season={s.id} size={28} />
+                    )}
+                    <span className="flex-1">{s.name}</span>
+                    <span className="text-sm text-ink-soft tabular">{lineCount(s.id)}</span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </fieldset>
+      )}
+
       {/* Price as fare zones: stops on a short rail. The chosen zone floods; the black dot stays with the station. */}
       <fieldset>
         <legend className="font-display text-base font-bold">Үнийн бүс</legend>

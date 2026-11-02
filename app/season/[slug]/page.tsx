@@ -8,7 +8,7 @@ import { ArrowIcon } from "../../components/icons";
 import { LineSetter } from "../../components/line-setter";
 import { seasonDoodles } from "../../components/season-doodles";
 import { LineBadge, RunningLamp } from "../../components/signage";
-import { Collection } from "./collection";
+import { Collection } from "../../components/collection";
 
 export function generateStaticParams() {
   return seasons.map((s) => ({ slug: s.id }));
@@ -131,9 +131,9 @@ function SeasonHero({ season, count, images }: { season: Season; count: number; 
             {images.map((src) => (
               <li
                 key={src}
-                className="grid aspect-square w-[30%] max-w-32 place-items-center rounded-full border-[3px] border-ink bg-paper p-2"
+                className="aspect-square w-[30%] max-w-32 overflow-hidden rounded-full border-[3px] border-ink bg-paper"
               >
-                <Image src={src} alt="" width={128} height={128} unoptimized className="size-full object-contain" />
+                <Image src={src} alt="" width={128} height={128} unoptimized className="size-full object-cover" />
               </li>
             ))}
           </ul>

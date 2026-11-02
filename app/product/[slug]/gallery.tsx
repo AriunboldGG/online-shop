@@ -7,7 +7,7 @@ import { seasonDoodles } from "../../components/season-doodles";
 import { CloseIcon, SearchIcon } from "../../components/icons";
 import { Sample } from "../../components/signage";
 
-// Placeholder framings of the one illustration we have. Real photography replaces these.
+// Framings of the one stand-in photo we have. Real product photography replaces these.
 const views = [
   { id: "full", label: "Бүтэн" },
   { id: "close", label: "Ойроос" },
@@ -58,20 +58,13 @@ export function Gallery({ product }: { product: Product }) {
             priority
             unoptimized
             sizes="(min-width: 1024px) 40rem, 100vw"
-            className={`object-contain px-[8%] pb-[13%] pt-[19%] ${product.soldOut ? "opacity-75 grayscale-[60%]" : ""}`}
+            className={`object-cover ${view === "line" ? "inset-[13%]! size-auto! rounded-[22px] border-[3px] border-ink" : ""} ${product.soldOut ? "opacity-75 grayscale-[60%]" : ""}`}
           />
         </div>
 
-        {/* The platform the product stands on: rail edge to edge, its stop under the product. */}
+        {/* The line runs along the bottom edge of the photo; the "line" view frames the photo on its soft tone instead. */}
         {view !== "line" && (
-          <>
-            <div aria-hidden="true" className="absolute inset-x-0 bottom-[9%] h-3" style={{ background: line.color }} />
-            <span
-              aria-hidden="true"
-              className="absolute bottom-[9%] left-1/2 block size-7 -translate-x-1/2 translate-y-2 rounded-full border-[5px] bg-paper"
-              style={{ borderColor: line.color }}
-            />
-          </>
+          <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-3 border-t-[3px] border-ink" style={{ background: line.color }} />
         )}
         {view === "line" && <Signature className="absolute bottom-6 right-6 w-16 lg:w-20" />}
 
