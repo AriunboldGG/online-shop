@@ -14,6 +14,7 @@ import { FloodObserver } from "./components/flood-observer";
 import { ArrowIcon } from "./components/icons";
 import { DropLine } from "./components/drop-line";
 import { Lookbook } from "./components/lookbook";
+import { MetroJourney } from "./components/metro-journey";
 import { SeasonSignup } from "./components/season-signup";
 import { HereDot, LineBadge, RunningLamp, Sample } from "./components/signage";
 
@@ -49,7 +50,7 @@ export default function Home() {
   const newArrivals = [...catalog].sort((a, b) => Number(b.badge === "new") - Number(a.badge === "new")).slice(0, 10);
 
   return (
-    <>
+    <MetroJourney>
       <FloodObserver />
       <Hero />
       <Marquee />
@@ -75,7 +76,7 @@ export default function Home() {
       <Lookbook />
       <WhyKorea />
       <SeasonSignup />
-    </>
+    </MetroJourney>
   );
 }
 
@@ -86,7 +87,7 @@ function Hero() {
   const here = stops.findIndex((c) => c.id === featured.category);
 
   return (
-    <section data-line="autumn" aria-labelledby="hero-title" className="mx-auto max-w-6xl px-4 pb-6 pt-3 lg:pb-10 lg:pt-8">
+    <section data-line="autumn" data-journey="Эхлэл" aria-labelledby="hero-title" className="mx-auto max-w-6xl px-4 pb-6 pt-3 lg:pb-10 lg:pt-8">
       <div className="overflow-hidden rounded-[28px] border-[3px] border-ink">
         <div className="relative px-5 py-5 text-ink lg:px-10 lg:pb-10 lg:pt-8" style={{ background: autumn.soft }}>
           <h1
@@ -356,7 +357,7 @@ const route = [
 
 function WhyKorea() {
   return (
-    <section aria-labelledby="why-title" className="bg-platform py-14 lg:py-20">
+    <section data-journey="Яагаад Солонгос" aria-labelledby="why-title" className="bg-platform py-14 lg:py-20">
       <div className="mx-auto max-w-6xl px-4">
         <SectionHead
           id="why-title"

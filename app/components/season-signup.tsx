@@ -18,7 +18,7 @@ export function SeasonSignup() {
   };
 
   return (
-    <section aria-labelledby={`${id}-title`} className="px-4 py-14 lg:py-20">
+    <section data-journey="Мэдэгдэл" aria-labelledby={`${id}-title`} className="px-4 py-14 lg:py-20">
       <div className="flood-soft relative mx-auto grid max-w-6xl gap-8 overflow-hidden rounded-[28px] border-[3px] border-ink px-6 py-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)] lg:items-end lg:gap-16 lg:px-14 lg:py-14">
         <DoodleStar className="absolute right-6 top-6 w-12 lg:left-[46%] lg:right-auto lg:top-10 lg:w-16" />
         <div>

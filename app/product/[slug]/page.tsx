@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
+import { PageFallback } from "../../components/page-fallback";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { CSSProperties } from "react";
@@ -22,7 +24,16 @@ export async function generateMetadata({ params }: PageProps<"/product/[slug]">)
   };
 }
 
-export default async function ProductPage({ params }: PageProps<"/product/[slug]">) {
+// The URL is read inside Suspense so every link to this route can share one prefetched shell.
+export default function ProductPage({ params }: PageProps<"/product/[slug]">) {
+  return (
+    <Suspense fallback={<PageFallback />}>
+      <ProductContent params={params} />
+    </Suspense>
+  );
+}
+
+async function ProductContent({ params }: Pick<PageProps<"/product/[slug]">, "params">) {
   // proxy.ts answers unknown slugs with a 404 before render; this guards direct renders.
   const product = findProduct((await params).slug);
   if (!product) notFound();

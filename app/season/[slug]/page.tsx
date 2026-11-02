@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
+import { PageFallback } from "../../components/page-fallback";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -23,7 +25,16 @@ export async function generateMetadata({ params }: PageProps<"/season/[slug]">):
   };
 }
 
-export default async function SeasonPage({ params }: PageProps<"/season/[slug]">) {
+// The URL is read inside Suspense so every link to this route can share one prefetched shell.
+export default function SeasonPage({ params }: PageProps<"/season/[slug]">) {
+  return (
+    <Suspense fallback={<PageFallback />}>
+      <SeasonContent params={params} />
+    </Suspense>
+  );
+}
+
+async function SeasonContent({ params }: Pick<PageProps<"/season/[slug]">, "params">) {
   // proxy.ts answers unknown slugs with a 404 before render; this guards direct renders.
   const season = findSeason((await params).slug);
   if (!season) notFound();
